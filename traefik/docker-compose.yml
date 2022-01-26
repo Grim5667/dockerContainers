@@ -13,9 +13,9 @@ services:
       - 80:80
       - 443:443
     environment:
-      - CF_API_EMAIL=kema7559@gmail.com
+      - CLOUDFLARE_EMAIL=kema7559@gmail.com
       #- CF_DNS_API_TOKEN=YOU_API_TOKEN
-      - CF_API_KEY=9ea3b4bc5da8f18289c4c62a5eec8d9f51bf8
+      - CLOUDFLARE_API_KEY=9ea3b4bc5da8f18289c4c62a5eec8d9f51bf8
       # be sure to use the correct one depending on if you are using a token or key
     volumes:
       - /etc/localtime:/etc/localtime:ro
