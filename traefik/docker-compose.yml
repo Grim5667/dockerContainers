@@ -2,8 +2,8 @@ version: '3'
 
 services:
   traefik:
-      hostname: traefik
       image: traefik:lastest
+      hostname: traefik
       container_name: traefik
       restart: always
       domainname: ${DOMAINNAME}
