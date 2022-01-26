@@ -12,12 +12,12 @@ defaultEntryPoints = ["https", "http"]
 
 # Force HTTPS
 [entryPoints]
-  [entryPoints.http]
-  address = ":80"
+  [entryPoints.web]
+    address = ":80"
     [entryPoints.http.redirect]
     entryPoint = "https"
-  [entryPoints.https]
-  address = ":443"
+  [entryPoints.websecure]
+    address = ":443"
     [entryPoints.https.tls]
 
 [file]
