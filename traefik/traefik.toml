@@ -1,4 +1,4 @@
-#debug = true
+debug = true
 
 logLevel = "ERROR" #DEBUG, INFO, WARN, ERROR, FATAL, PANIC
 InsecureSkipVerify = true 
@@ -12,11 +12,11 @@ defaultEntryPoints = ["https", "http"]
 
 # Force HTTPS
 [entryPoints]
-  [entryPoints.web]
+  [entryPoints.http]
     address = ":80"
     [entryPoints.http.redirect]
     entryPoint = "https"
-  [entryPoints.websecure]
+  [entryPoints.https]
     address = ":443"
     [entryPoints.https.tls]
 
@@ -34,11 +34,12 @@ onDemand = false #create certificate when container is created
 [acme.dnsChallenge]
   provider = "cloudflare"
   delayBeforeCheck = 300
+  resolvers = ["1.1.1.1:53"]
 [[acme.domains]]
    main = "grimservices.co.uk"
 [[acme.domains]]
    main = "*.grimservices.co.uk"
-   
+
 # Connection to docker host system (docker.sock)
 [docker]
 endpoint = "unix:///var/run/docker.sock"
