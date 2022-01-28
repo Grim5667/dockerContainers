@@ -1,0 +1,27 @@
+---
+version: "2.1"
+services:
+  swag:
+    image: ghcr.io/linuxserver/swag
+    container_name: swag
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - URL=grimservicess.co.uk
+      - SUBDOMAINS=www,ombi
+      - VALIDATION=http
+      - CERTPROVIDER=letsencrypt
+      - DNSPLUGIN=cloudflare
+      - EMAIL=kema7559@gmail.com #optional
+      - ONLY_SUBDOMAINS=false #optional
+      #- EXTRA_DOMAINS=<extradomains> #optional
+      #- STAGING=false #optional
+    volumes:
+      - /home/aptalca/appdata/swag:/config
+    ports:
+      - 443:443
+      - 80:80 #optional
+    restart: unless-stopped
